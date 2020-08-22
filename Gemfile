@@ -15,8 +15,8 @@ gem 'stealth-facebook'
 
 # Uncomment to enable the Stealth Twilio SMS Driver
 # gem 'stealth-twilio'
+gem 'dotenv'
 
 group :development do
-  gem 'dotenv'
   gem 'foreman'
 end
