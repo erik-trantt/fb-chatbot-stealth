@@ -28,7 +28,26 @@ default: &default
   #   from_phone: +14155330000
 
 production:
-  <<: *default
+  facebook:
+    verify_token: <%= ENV['FACEBOOK_VERIFY_TOKEN'] %>
+    page_access_token: <%= ENV['FACEBOOK_ACCESS_TOKEN'] %>
+    setup:
+      greeting: # Greetings are broken up by locale
+        - locale: default
+          text: "Welcome to the AMY bot."
+      get_started:
+        payload: new_user
+      persistent_menu:
+        - locale: default
+          composer_input_disabled: false
+          call_to_actions:
+            - type: payload
+              text: Restart
+              payload: "restart_button"
+            - type: payload
+              text: Reset
+              payload: "new_user"
+
 
 development:
   facebook:
@@ -46,10 +65,10 @@ development:
           call_to_actions:
             - type: payload
               text: Restart
-              payload: restart_button
+              payload: "restart_button"
             - type: payload
-              text: Developer
-              payload: dev_button
+              text: Reset
+              payload: "new_user"
 
 test:
   <<: *default
