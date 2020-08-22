@@ -5,7 +5,10 @@ gem 'railties', '~> 5.2'
 gem 'stealth', '~> 1.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+
+# Use sqlite3 as the database for Active Record
+gem 'pg', '~> 0.18.4'
 
 # Uncomment to enable the Stealth Facebook Driver
 gem 'stealth-facebook'
