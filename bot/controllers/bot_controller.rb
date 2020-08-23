@@ -22,9 +22,10 @@ class BotController < Stealth::Controller
 
   def handle_payloads
     payload = current_message.payload
-    restart_buttons = %w[restart\ pressed restart_button dev_button].freeze
+    restart_buttons = %w[restart\ pressed restart_button].freeze
+    new_start_buttons = %w[new_user dev_button].freeze
 
-    if payload == 'new_user'
+    if new_start_buttons.include?(payload)
       step_to flow: 'hello', state: 'say_hello'
     elsif restart_buttons.include?(payload)
       step_to flow: 'goodbye', state: 'say_hello_again'

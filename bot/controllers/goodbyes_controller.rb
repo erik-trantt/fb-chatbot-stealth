@@ -13,9 +13,10 @@ class GoodbyesController < BotController
   end
   
   def get_restart
-    if @payload == 'restart pressed' || @payload == 'restart_button'
-      step_to state: 'say_hello_again'
-    else
+    payload = current_message.payload
+    restart_buttons = %w[restart\ pressed restart_button].freeze
+    
+    unless restart_buttons.include?(payload)
       send_replies
       update_session_to state: 'get_restart'
     end

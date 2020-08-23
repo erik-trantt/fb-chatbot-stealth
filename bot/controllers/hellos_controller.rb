@@ -5,6 +5,11 @@ class HellosController < BotController
   def say_hello
     @profile = get_profile
     send_replies
+    step_to state: 'ask_location'
+  end
+
+  def ask_location
+    send_replies
     step_to state: 'ask_colour'
   end
 
@@ -13,29 +18,14 @@ class HellosController < BotController
     update_session_to state: 'get_colour'
   end
 
-  def ask_location
-    send_replies
-  end
-
   def get_colour
     send_replies
-
-    # if current_message.message == 'Blue'
-    #   step_to state: 'say_boo'
-    # elsif current_message.message == 'Orange'
-    #   step_to state: 'say_wow'
-    # else
-    #   step_to state: 'ask_color'
-    #   # raise Exception, 'The color is not found'
-    #   # raise 'The color is not found'
-    # end
 
     case current_message.message
     when 'Blue' then step_to state: 'say_boo'
     when 'Orange' then step_to state: 'say_wow'
     else
-      step_to state: 'ask_colour'
-      update_session_to state: 'ask_colour'
+      step_to flow: 'ask_colour'
     end
   end
 
