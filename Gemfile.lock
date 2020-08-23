@@ -49,6 +49,7 @@ GEM
       ruby2_keywords (~> 0.0.1)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
+    pg (0.18.4)
     puma (3.12.6)
     rack (2.2.3)
     rack-protection (2.0.8.1)
@@ -79,7 +80,6 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.8.1)
       tilt (~> 2.0)
-    sqlite3 (1.4.2)
     stealth (1.1.6)
       activesupport (~> 5.2)
       multi_json (~> 1.12)
@@ -103,8 +103,8 @@ DEPENDENCIES
   activerecord (~> 5.2)
   dotenv
   foreman
+  pg (~> 0.18.4)
   railties (~> 5.2)
-  sqlite3
   stealth (~> 1.0)
   stealth-facebook
 
