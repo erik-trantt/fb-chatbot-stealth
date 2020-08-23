@@ -45,8 +45,8 @@ development:
           composer_input_disabled: false
           call_to_actions:
             - type: payload
-              text: Test Button
-              payload: test_button
+              text: Restart
+              payload: restart_button
             - type: payload
               text: Developer
               payload: dev_button
